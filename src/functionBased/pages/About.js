@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useResolvedPath } from 'react-router-dom';
 
 const About = () => {
-  const { url } = useResolvedPath('').pathname;
+  const url = useResolvedPath('').pathname;
   return (
     <div className="about__content">
       <ul className="about__list">

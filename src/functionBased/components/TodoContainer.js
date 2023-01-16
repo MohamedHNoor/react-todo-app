@@ -1,14 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import Header from './Header';
 import InputTodo from './InputTodo';
 import TodosLists from './TodoLists';
-
-import About from '../pages/About';
-import NotMatch from '../pages/NotMatch';
-import SinglePage from '../pages/SinglePage';
-import Navbar from './Navbar';
 
 export default function TodoContainer() {
   function getInitialTodos() {
@@ -62,33 +56,17 @@ export default function TodoContainer() {
   };
 
   return (
-    <>
-      <Navbar />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            // eslint-disable-next-line react/jsx-wrap-multilines
-            <div className="container">
-              <div className="inner">
-                <Header />
-                <InputTodo addTodoItem={addTodoItem} />
-                <TodosLists
-                  todos={todos}
-                  handleChange={handleChange}
-                  delTodo={delTodo}
-                  setUpdate={setUpdate}
-                />
-              </div>
-            </div>
-          }
+    <div className="container">
+      <div className="inner">
+        <Header />
+        <InputTodo addTodoItem={addTodoItem} />
+        <TodosLists
+          todos={todos}
+          handleChange={handleChange}
+          delTodo={delTodo}
+          setUpdate={setUpdate}
         />
-        <Route path="/about">
-          <Route index element={<About />} />
-          <Route path=":slug" element={<SinglePage />} />
-        </Route>
-        <Route path="/*" element={<NotMatch />} />
-      </Routes>
-    </>
+      </div>
+    </div>
   );
 }
