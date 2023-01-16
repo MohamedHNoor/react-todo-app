@@ -21,6 +21,7 @@ export default function InputTodo({ addTodoItem }) {
       setInputTex({
         title: '',
       });
+      // eslint-disable-next-line
     } else alert('Please write item');
   };
 

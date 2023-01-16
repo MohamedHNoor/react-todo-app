@@ -10,6 +10,7 @@ const TodoItem = ({
 
   useEffect(
     () => () => {
+      // eslint-disable-next-line
       console.log('Cleaning up...');
     },
     [],
