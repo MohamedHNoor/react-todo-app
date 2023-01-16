@@ -64,3 +64,25 @@ body {
   outline: none;
   border: none;
 }
+
+.navbar_lists {
+  display: flex;
+  font-family: sans-serif;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  gap: 1rem;
+  margin-top: 1rem;
+  font-size: large;
+}
+
+.navbar_lists li a {
+  text-decoration: none;
+  color: #444;
+  font-size: 1.2rem;
+}
+
+.navbar_lists li a:hover {
+  color: orange;
+  text-decoration: underline;
+}

@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import Header from './Header';
 import InputTodo from './InputTodo';
 import TodosLists from './TodoLists';
-import { v4 as uuidv4 } from 'uuid';
+import About from '../pages/About';
+import NotMatch from '../pages/NotMatch';
+import Navbar from '../pages/Navbar';
 
 export default function TodoContainer() {
+  function getInitialTodos() {
+    // getting stored items
+    const temp = localStorage.getItem('todos');
+    const savedTodos = JSON.parse(temp);
+    return savedTodos || [];
+  }
   const [todos, setTodos] = useState(getInitialTodos);
 
   useEffect(() => {
@@ -13,39 +23,26 @@ export default function TodoContainer() {
     localStorage.setItem('todos', temp);
   }, [todos]);
 
-  function getInitialTodos() {
-    // getting stored items
-    const temp = localStorage.getItem('todos');
-    const savedTodos = JSON.parse(temp);
-    return savedTodos || [];
-  }
-
   const handleChange = (id) => {
-    setTodos((prevState) =>
-      prevState.map((todo) => {
-        if (todo.id === id) {
-          return {
-            ...todo,
-            completed: !todo.completed,
-          };
-        }
-        return todo;
-      }),
-    );
+    setTodos((prevState) => prevState.map((todo) => {
+      if (todo.id === id) {
+        return {
+          ...todo,
+          completed: !todo.completed,
+        };
+      }
+      return todo;
+    }));
   };
 
   const delTodo = (id) => {
-    setTodos([
-      ...todos.filter((todo) => {
-        return todo.id !== id;
-      }),
-    ]);
+    setTodos([...todos.filter((todo) => todo.id !== id)]);
   };
 
   const addTodoItem = (title) => {
     const newTodo = {
       id: uuidv4(),
-      title: title,
+      title,
       completed: false,
     };
     setTodos([...todos, newTodo]);
@@ -63,17 +60,29 @@ export default function TodoContainer() {
   };
 
   return (
-    <div className="container">
-      <div className="inner">
-        <Header />
-        <InputTodo addTodoProps={addTodoItem} />
-        <TodosLists
-          todos={todos}
-          handleChangeProps={handleChange}
-          deleteTodoProps={delTodo}
-          setUpdate={setUpdate}
+    <>
+      <Navbar />
+      <Routes>
+        <Route
+          path="/"
+          element={(
+            <div className="container">
+              <div className="inner">
+                <Header />
+                <InputTodo addTodoItem={addTodoItem} />
+                <TodosLists
+                  todos={todos}
+                  handleChange={handleChange}
+                  delTodo={delTodo}
+                  setUpdate={setUpdate}
+                />
+              </div>
+            </div>
+          )}
         />
-      </div>
-    </div>
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<NotMatch />} />
+      </Routes>
+    </>
   );
 }
