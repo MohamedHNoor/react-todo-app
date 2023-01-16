@@ -15,7 +15,7 @@ const App = () => (
         <Route index element={<About />} />
         <Route path=":slug" element={<SinglePage />} />
       </Route>
-      <Route path="/*" element={<NotMatch />} />
+      <Route path="*" element={<NotMatch />} />
     </Routes>
   </>
 );
