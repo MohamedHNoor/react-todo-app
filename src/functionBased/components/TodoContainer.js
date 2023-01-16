@@ -8,7 +8,7 @@ import TodosLists from './TodoLists';
 import About from '../pages/About';
 import NotMatch from '../pages/NotMatch';
 import Navbar from './Navbar';
-import SinglePage from '../Pages/SinglePage';
+import SinglePage from '../pages/SinglePage';
 
 export default function TodoContainer() {
   function getInitialTodos() {
