@@ -1,5 +1,7 @@
 import React from 'react';
-import { Link, useResolvedPath, Route } from 'react-router-dom';
+import {
+  Link, useResolvedPath, Route, Routes,
+} from 'react-router-dom';
 import SinglePage from './SinglePage';
 
 const About = () => {
@@ -14,7 +16,9 @@ const About = () => {
           <Link to={`${url}/about-author`}>About Author</Link>
         </li>
       </ul>
-      <Route path=":slug" element={<SinglePage />} />
+      <Routes>
+        <Route path=":slug" element={<SinglePage />} />
+      </Routes>
     </div>
   );
 };
