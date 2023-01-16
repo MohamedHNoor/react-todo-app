@@ -170,7 +170,13 @@ a {
 }
 
 .main__content {
-  flex: 7 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  padding: 2rem;
+  margin: auto;
 }
 
 .main__content h1 {
