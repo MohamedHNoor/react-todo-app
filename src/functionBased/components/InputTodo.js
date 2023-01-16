@@ -30,7 +30,7 @@ export default function InputTodo({ addTodoItem }) {
       <input
         type="text"
         className="input-text"
-        placeholder="Add tod..."
+        placeholder="Add todo..."
         name="title"
         onChange={onChange}
         value={inputText.title}
