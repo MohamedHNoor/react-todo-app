@@ -85,7 +85,7 @@ export default function TodoContainer() {
         <Route path="/about">
           <Route index element={<About />} />
         </Route>
-        <Route path="*" element={<NotMatch />} />
+        <Route path="/*" element={<NotMatch />} />
       </Routes>
     </>
   );
