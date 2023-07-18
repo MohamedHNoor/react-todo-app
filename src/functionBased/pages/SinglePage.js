@@ -7,13 +7,13 @@ const SinglePage = () => {
       slug: 'about-app',
       title: 'About the App',
       description:
-        'In this app, you can add, delete, submit and edit items. To edit items, simply double click on it. Once you are done, press the enter key to resubmit. This app will persist your data in the browser local storage. So whether you reload, close your app or reopened it, you still have access to your to-dos items.',
+        'In this app, you can add, delete, submit, and edit items. To edit items, double-click on them. Once you are done, press the enter key to resubmit. This app will persist your data in the browser's local storage. So whether you reload, close your app, or reopen it, you still have access to your to-dos items.',
     },
     {
       slug: 'about-author',
       title: 'About the Author',
       description:
-        'This app was developed by IndieCoderMM, a self-taught web developer. He is opened to freelance Gig. So go ahead and connect with him on Twitter @hthant_oo.',
+        'Mohamed Hassan Noor, a Full-stack web developer, developed this app. I am open to collaborating on projects or freelance Gigs. Connect with me on LinkedIn: https://www.linkedin.com/in/mohamedhnoor/.',
     },
   ];
   const { slug } = useParams();
